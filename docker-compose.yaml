@@ -2,7 +2,7 @@ version: '3'
 
 services:
   database:
-    build: mysql:latest
+    image: mysql:latest
     restart: always
     env_file: ./mysql/mysql.env
     ports:
