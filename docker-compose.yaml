@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  database:
+    build: mysql:latest
+    restart: always
+    env_file: ./mysql/mysql.env
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/initdb:/docker-entrypoint-initdb.d
+
+  api:
+    build: ./api
+    ports:
+      - 1323:1323
+    restart: always
+    # command: go run /api/src/main.go
+    depends_on:
+      - database
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:8080
+    # command: http-server dist
