@@ -16,7 +16,7 @@ services:
     ports:
       - 1323:1323
     restart: always
-    # command: go run /api/src/main.go
+    command: go run /api/src/main.go
     depends_on:
       - database
 
