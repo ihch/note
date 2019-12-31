@@ -12,7 +12,9 @@ services:
 
   api:
     build: ./api
-    env_file: ./api/api.env
+    env_file:
+      - ./api/api.env
+      - ./mysql/mysql.env
     ports:
       - 1323:1323
     restart: always
