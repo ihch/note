@@ -11,9 +11,9 @@ services:
       - ./mysql/initdb:/docker-entrypoint-initdb.d
 
   api:
-    build: ./api
+    build: ./note-api
     env_file:
-      - ./api/api.env
+      - ./note-api/api.env
       - ./mysql/mysql.env
     ports:
       - 1323:1323
